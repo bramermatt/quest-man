@@ -16,23 +16,80 @@
 </head>
 <body>
 
+    <div class="background">
+        
+    </div>
+
     <nav>
-        <span><i class="fa fa-dragon"></i></span>
-        <h1>Quest-Man</h1>
+
+
+            <div class="nav-title flex row gap1vw">
+                <span><i class="fa fa-dragon"></i></span>
+                <h1>Quest-Man</h1>
+            </div>
+
+            
+
+        <div class="nav-container">
+            <span id="menu-icon"><i class="fa fa-bars"></i></span>
+            <div class="nav-menu" id="nav-menu">
+                <button class="close-icon" id="close-icon"><i class="fas fa-times"></i></button>
+                <ul class="menu">
+                    <li><a href="#about" id="about-link">About</a></li>
+                    <li><a href="https://github.com/bramermatt/quest-man" target="_blank">GitHub</a></li>
+                    <li><a href="mailto:m.bramer1096@gmail.com?subject=Quest-Man Text-Based Adventure Game | Report an Issue!" target="_blank">Report</a></li>
+                </ul>
+            </div>
+        </div>
+        
+
     </nav>
 
-    <header>
+
+
+
+        <!-- HTML for the About modal -->
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>About Quest-Man</h2>
+            <p>
+                Welcome to Quest-Man, an engaging text-based adventure game where your choices shape the story. Step into a world of mystery, exploration, and endless possibilities. As the protagonist, you'll navigate through procedurally generated environments, encounter intriguing characters, and face challenging quests.In Quest-Man, your decisions determine the outcome of your journey. Will you become a legendary hero, a cunning rogue, or a wise sage? Each playthrough offers a unique experience, encouraging you to think strategically and immerse yourself in the narrative.
+            </p>
+
+            <p>
+                Embark on epic quests, solve intricate puzzles, and discover hidden secrets. Whether you're a seasoned adventurer or new to the genre, Quest-Man provides a captivating and immersive experience that will keep you coming back for more. Prepare yourself for an unforgettable journey. Adventure awaits in Quest-Man!
+            </p>
+
+            <p>
+                If you have any feedback or suggestions, please feel free to contact us at <a href="mailto:m.bramer1096@gmail.com?subject=Quest-Man Text-Based Adventure Game Suggestion!" target="_blank">m.bramer1096@gmail.com</a>.
+            </p>
+
+            <img src="matt-profile.jpeg" alt="">
+            <p>Developed by <a href="https://www.mattbramer.com" target="_blank">Matthew Bramer</a></p>
+
+            </div>
+        </div>
+
+    <!-- <header>
         <img src="dragon-background.jpeg" alt="">
-    </header>
+    </header> -->
 
     <main>
+
+        <div class="game-screen">
 
         <div class="game-buttons">
             <button>Start Game</button>
             <!-- <button>Hello</button> -->
         </div>
+
+        </div>
         
     </main>
+
+    <script src="modal.js"></script>
+    <script src="mobile-menu.js"></script>
     
 </body>
 </html>
