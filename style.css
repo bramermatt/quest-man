@@ -14,13 +14,17 @@ html {
     
         /* font-family: system-ui; */
         font-family: math;
-        overflow: hidden;
+        /* overflow: hidden; */
 
 
         
     }
 
 
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 body::before {
@@ -103,6 +107,7 @@ nav {
     z-index: 1000;
 
     border-radius: 10px;
+    display: none;
 
     /* box-shadow: none; */
     /* filter: drop-shadow(0); */
@@ -110,6 +115,7 @@ nav {
 }
 
 .nav-menu.open {
+    display: block;
     right: 10px;
     max-width: 96vw;
     
@@ -206,12 +212,13 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    max-height: 100vh;
+    margin: 10vh 0;
 }
 
 .game-screen {
     text-align: center;
+    padding: 12px;
 }
 
 .game-buttons button {
@@ -235,7 +242,7 @@ main {
     margin: 0;
     text-transform: uppercase;
     font-size: x-large;
-    border-bottom: thin solid;
+    /* border-bottom: thin solid; */
 }
 
 #character-form input {
@@ -247,12 +254,17 @@ main {
     flex-wrap: wrap;
     align-content: center;
     align-items: stretch;
+    width: -webkit-fill-available;
 
 }
 
 label, button {
     font-size: 18px;
     padding: 10px 20px;
+}
+
+label {
+    font-size: 22px;
 }
 
 button:hover {
@@ -269,7 +281,7 @@ button:hover {
     align-items: center;
     justify-content: space-between;
     margin: 10px 0;
-    gap: 10vw;
+    gap: 5vw;
     font-size: 24px; /* Larger font size for character name */
     text-transform: capitalize;
 }
@@ -282,6 +294,8 @@ button:hover {
 
 #character-list li .buttons {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 10px;
 }
 
@@ -416,6 +430,32 @@ button:hover {
         }
     }
 
+    #character-selection h3 {
+        /* font-size: medium; */
+        
+    }
+
+    label, button {
+        padding: 5px;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    
+    /* .nav-title {
+        display: none;
+    } */
+
+    #nav-menu {
+        width: 90%;
+        padding-top: 50px;
+    }
+
+    #character-form input {
+        font-size: small;
+    }
+
 }
 
 
@@ -427,6 +467,10 @@ button:hover {
 
     .nav-menu {
         background-color: #ebebeb;
+    }
+
+    button {
+        color: rgb(255, 255, 255) !important;
     }
 
     .menu {
@@ -457,7 +501,9 @@ button:hover {
 @media screen and (prefers-color-scheme: dark) {
     
 
-
+    button {
+        color: rgb(255, 255, 255) !important;
+    }
 
     .nav-menu {
         background-color: #161616;
