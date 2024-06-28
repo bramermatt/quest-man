@@ -76,18 +76,31 @@
     </header> -->
 
     <main>
-
         <div class="game-screen">
+            <div class="game-buttons">
+                <button id="start-button"><i class="fa-solid fa-play"></i> Start Game</button>
+            </div>
 
-        <div class="game-buttons">
-            <button>Start Game</button>
-            <!-- <button>Hello</button> -->
-        </div>
+            <div id="character-selection" class="hidden">
+                <h3>Select a Character</h3>
+                <ul id="character-list"></ul>
+                <button id="new-character-button">Create New Character</button>
+            </div>
+
+            <div id="character-creation" class="hidden">
+                <form id="character-form">
+                    <label for="character-name">Character Name:</label>
+                    <input type="text" id="character-name" name="character-name" required>
+                    <button type="submit">Create Character</button>
+                </form>
+            </div>
 
         </div>
-        
     </main>
-
+    
+    
+    
+    <script src="game-screen.js"></script>
     <script src="modal.js"></script>
     <script src="mobile-menu.js"></script>
     

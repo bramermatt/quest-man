@@ -16,6 +16,7 @@ html {
         font-family: math;
         overflow: hidden;
 
+
         
     }
 
@@ -48,27 +49,23 @@ nav {
     justify-content: space-between;
     gap: 1vw;
     padding-inline: 25px;
-
     width: 100%;
     max-width: 1400px;
-
     position: sticky;
     top: 15px;
-
     z-index: 1;
-
     margin-inline: 10px;
     margin: 0 auto;
-    
-
+    margin-top: 20px;
     filter:drop-shadow(5px 5px 10px black);
-
     color: white;
 
     .fa {
         font-size: 30px;
+    }
 
-        /* filter: invert(1); */
+    h1 {
+        margin: 0;
     }
 
 
@@ -95,10 +92,10 @@ nav {
 
 .nav-menu {
     position: fixed;
-    top: 10px;
+    top: 0;
     right: -100%;
     width: 100%;
-    height: 89vh;
+    height: 92vh;
     /* background: #333; */
     /* color: #fff; */
     overflow-y: auto;
@@ -163,7 +160,7 @@ nav {
 @media screen and (max-width: 768px) {
     
     #nav-menu {
-        height: 98vh;
+        height: 90vh;
     }
 
     .menu {
@@ -204,43 +201,108 @@ header {
     }
 }
 
+
 main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
+.game-screen {
+    text-align: center;
+}
 
+.game-buttons button {
+    font-size: 24px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
 
+.hidden {
+    display: none;
+}
 
-    button {
-        font-size: 18px;
-        padding: 10px;
-        border-radius: 10px;
-        border: none;
-        box-shadow: 2px 2px 10px black;
-        z-index: 50;
-        cursor: pointer;
-    }
+#character-creation,#character-selection {
+    margin-top: 60px;
+    background-color: rgba(0,0,0,0.5); 
+    padding: 15px;
+    border-radius: 10px;
+}
 
-    button:hover {
-        background-color: black;
-        color: white;
-    }
+#character-selection h3 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: x-large;
+    border-bottom: thin solid;
+}
 
-    .game-screen {
-        max-width: 1400px;
-        margin: 0 auto;
-    }
-
-    .game-buttons {
-        max-width: 1400px;
-
-        display: flex;
-        gap: 1vw;
-
-        position: fixed;
-        bottom: 8vh;
-        right: 8vw;
-    }
+#character-form input {
+    padding: 15px;
+    font-size: x-large;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: stretch;
 
 }
+
+label, button {
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+#character-list {
+    list-style: none;
+    padding: 0;
+}
+
+#character-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    gap: 10vw;
+    font-size: 24px; /* Larger font size for character name */
+    text-transform: capitalize;
+}
+
+#character-list li input[type="radio"] {
+    transform: scale(1.5); /* Adjust the scale factor as needed */
+    margin-right: 10px; /* Add spacing between the radio button and character name */
+}
+
+
+#character-list li .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+#character-list li button {
+    background: none;
+    border: none;
+    border-radius: 4px;
+    color: rgb(253, 60, 60);
+    background-color: #161616;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 5px 10px;
+
+}
+
+#character-list li button:hover {
+    background-color: #3d3d3d;
+    border: none;
+}
+
+
 
 
 /* Modal styling */
@@ -296,7 +358,7 @@ main {
 }
 
 
-.close, .close-btn {
+.close, .close-btn, .close-icon button {
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -373,6 +435,23 @@ main {
         }
     }
 
+    .modal-content {
+        color: white;
+
+        a {
+            color: lightcoral;
+        }
+
+    }
+
+    .game-screen {
+        color: white !important;
+    }
+    
+    #character-selection, #character-creation {
+        box-shadow: 2px 2px 10px black;
+    }
+
 }
 
 @media screen and (prefers-color-scheme: dark) {
@@ -388,5 +467,18 @@ main {
         li a {
             color:rgb(255, 255, 255);
         }
+    }
+
+    .modal-content {
+        color: white;
+
+        a {
+            color: lightcoral;
+        }
+
+    }
+
+    #character-selection, #character-creation {
+        box-shadow: 2px 2px 10px black;
     }
 }
