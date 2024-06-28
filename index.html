@@ -28,7 +28,9 @@
                 <h1>Quest-Man</h1>
             </div>
 
-            
+        <div id="selected-character">
+            <!-- Character name will be displayed here -->
+        </div>
 
         <div class="nav-container">
             <span id="menu-icon"><i class="fa fa-bars"></i></span>
@@ -91,8 +93,49 @@
                 <form id="character-form">
                     <label for="character-name">Character Name:</label>
                     <input type="text" id="character-name" name="character-name" required>
-                    <button type="submit">Create Character</button>
+        
+                            <!-- D&D Stats Form -->
+                            <div class="form-group">
+                                <label for="strength">Strength (STR)</label>
+                                <input type="number" id="strength" name="strength" min="1" max="20" value="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="dexterity">Dexterity (DEX)</label>
+                                <input type="number" id="dexterity" name="dexterity" min="1" max="20" value="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="constitution">Constitution (CON)</label>
+                                <input type="number" id="constitution" name="constitution" min="1" max="20" value="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="intelligence">Intelligence (INT)</label>
+                                <input type="number" id="intelligence" name="intelligence" min="1" max="20" value="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="wisdom">Wisdom (WIS)</label>
+                                <input type="number" id="wisdom" name="wisdom" min="1" max="20" value="10">
+                            </div>
+                            <div class="form-group">
+                                <label for="charisma">Charisma (CHA)</label>
+                                <input type="number" id="charisma" name="charisma" min="1" max="20" value="10">
+                            </div>
+                            <button type="button" id="generate-stats-button">Auto-Generate Stats</button>
+        
+                            <button type="submit">Create Character</button>
+
                 </form>
+            </div>
+
+
+            <div id="character-sheet" class="character-sheet">
+                <h3>Character Sheet</h3>
+                <p id="character-name-display"></p>
+                <p id="character-strength"></p>
+                <p id="character-dexterity"></p>
+                <p id="character-constitution"></p>
+                <p id="character-intelligence"></p>
+                <p id="character-wisdom"></p>
+                <p id="character-charisma"></p>
             </div>
 
         </div>
