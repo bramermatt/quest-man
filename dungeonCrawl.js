@@ -1,79 +1,158 @@
-// Define global variables to store characters and current selected character
-let characters = [];
-let selectedCharacter = null;
-
-// Function to create a new character object
-function createCharacter(name, strength, dexterity, constitution, intelligence, wisdom, charisma) {
-    return {
-        name,
-        strength,
-        dexterity,
-        constitution,
-        intelligence,
-        wisdom,
-        charisma
+// Function to start dungeon crawl game
+function startDungeonCrawl(character) {
+    // Initialize game state
+    let currentRoom = 0;
+    const dungeon = {
+        rooms: [
+            { description: 'You enter a dark room. There is a faint glow in the corner.', hasMonster: true },
+            { description: 'You find a long corridor with several closed doors.', hasMonster: false },
+            { description: 'You discover a treasure chest at the end of a narrow passage.', hasMonster: false }
+        ]
     };
-}
 
-// Function to display characters in the character list
-function displayCharacterList() {
-    const characterList = document.getElementById('character-list');
-    characterList.innerHTML = '';
-    characters.forEach((character, index) => {
-        const li = document.createElement('li');
-        li.textContent = character.name;
-        li.addEventListener('click', () => selectCharacter(index));
-        characterList.appendChild(li);
-    });
-}
 
-// Function to handle character creation form submission
-function handleCharacterCreation(event) {
-    event.preventDefault();
-    const form = event.target;
-    const characterName = form.elements['character-name'].value;
-    const strength = parseInt(form.elements['strength'].value);
-    const dexterity = parseInt(form.elements['dexterity'].value);
-    const constitution = parseInt(form.elements['constitution'].value);
-    const intelligence = parseInt(form.elements['intelligence'].value);
-    const wisdom = parseInt(form.elements['wisdom'].value);
-    const charisma = parseInt(form.elements['charisma'].value);
 
-    const newCharacter = createCharacter(characterName, strength, dexterity, constitution, intelligence, wisdom, charisma);
-    characters.push(newCharacter);
-    displayCharacterList();
-    form.reset();
-}
 
-// Function to select a character
-function selectCharacter(index) {
-    selectedCharacter = characters[index];
-    const characterSheet = document.getElementById('character-sheet');
-    characterSheet.classList.remove('hidden');
-    document.getElementById('character-name-display').textContent = `Name: ${selectedCharacter.name}`;
-    document.getElementById('character-strength').textContent = `Strength: ${selectedCharacter.strength}`;
-    // Display other character attributes similarly
-}
-
-// Function to start the adventure
-function startAdventure() {
-    if (!selectedCharacter) {
-        alert('Please select a character to start the adventure!');
-        return;
+// Function to handle user input and progress game
+function handleGameProgress() {
+    if (currentRoom < dungeon.rooms.length) {
+        const room = dungeon.rooms[currentRoom];
+        if (room.hasMonster) {
+            // Example: Show combat options or interaction buttons
+            showCombatOptions(room);
+        } else {
+            // Example: Show exploration options
+            showExplorationOptions(room);
+        }
+    } else {
+        // Game ends
+        endGame();
     }
-    // Hide character selection UI and show adventure UI
-    document.getElementById('character-selection').classList.add('hidden');
-    document.getElementById('game').classList.remove('hidden');
-    // Begin adventure by displaying initial scenario or welcome message
-    const output = document.getElementById('output');
-    output.innerHTML = '<p>Welcome to the Dungeon Adventure!</p>';
-    // Additional logic to handle user interaction and game flow
 }
 
-// Event listeners for form submission and button clicks
-document.getElementById('character-form').addEventListener('submit', handleCharacterCreation);
-document.getElementById('start-button').addEventListener('click', startAdventure);
-document.getElementById('new-character-button').addEventListener('click', () => {
-    document.getElementById('character-creation').classList.remove('hidden');
-    document.getElementById('character-selection').classList.add('hidden');
-});
+    // Function to show combat options
+    function showCombatOptions(room) {
+        clearScreen();
+        const container = document.createElement('div');
+        container.classList.add('game-container');
+
+        const description = document.createElement('p');
+        description.textContent = room.description;
+        container.appendChild(description);
+
+        const combatActions = document.createElement('div');
+        combatActions.classList.add('combat-actions');
+
+        const attackButton = document.createElement('button');
+        attackButton.textContent = 'Attack Monster';
+        attackButton.addEventListener('click', () => {
+            // Example: Implement combat logic
+            simulateCombat();
+            currentRoom++;
+            handleGameProgress();
+        });
+        combatActions.appendChild(attackButton);
+
+        const fleeButton = document.createElement('button');
+        fleeButton.textContent = 'Flee';
+        fleeButton.addEventListener('click', () => {
+            fleeCombat();
+            currentRoom++;
+            handleGameProgress();
+        });
+        combatActions.appendChild(fleeButton);
+
+        container.appendChild(combatActions);
+        document.body.appendChild(container);
+    }
+
+    // Function to simulate combat
+    function simulateCombat() {
+        // Example: Implement combat logic
+        alert('You defeated the monster! Proceed to the next room.');
+    }
+
+    // Function to handle fleeing combat
+    function fleeCombat() {
+        // Example: Implement flee logic
+        alert('You managed to escape from the monster and proceed to the next room.');
+    }
+
+    // Function to show exploration options
+    function showExplorationOptions(room) {
+        clearScreen();
+        const container = document.createElement('div');
+        container.classList.add('game-container');
+
+        const description = document.createElement('p');
+        description.textContent = room.description;
+        container.appendChild(description);
+
+        const continueButton = document.createElement('button');
+        continueButton.textContent = 'Continue';
+        continueButton.addEventListener('click', () => {
+            currentRoom++;
+            handleGameProgress();
+        });
+        container.appendChild(continueButton);
+
+        document.body.appendChild(container);
+    }
+
+// Function to end the game
+function endGame() {
+    clearScreen();
+    const container = document.createElement('div');
+    container.classList.add('game-container');
+
+    const endMessage = document.createElement('p');
+    endMessage.textContent = `Congratulations! You completed your dungeon crawl with ${character.name}.`;
+    container.appendChild(endMessage);
+
+    const restartButton = document.createElement('button');
+    restartButton.textContent = 'Restart';
+    restartButton.addEventListener('click', () => {
+        currentRoom = 0;
+        handleGameProgress();
+    });
+    container.appendChild(restartButton);
+
+    createCloseButton(); // Add close button
+    document.body.appendChild(container);
+}
+
+    // Function to create a close button
+    function createCloseButton() {
+        const closeButton = document.createElement('button');
+        closeButton.textContent = 'X';
+        closeButton.classList.add('close-button');
+        closeButton.addEventListener('click', function() {
+            clearScreen();
+            initializeGame(); // Return to main game or character selection screen
+        });
+        document.body.appendChild(closeButton);
+    }
+
+    // Function to clear the screen
+    function clearScreen() {
+        document.body.innerHTML = '';
+    }
+
+    // Function to add a message to game messages
+// function addMessageToGame(message) {
+//     const gameMessages = document.getElementById('game-messages');
+//     const messageElement = document.createElement('p');
+//     messageElement.textContent = message;
+//     gameMessages.appendChild(messageElement);
+//     gameMessages.scrollTop = gameMessages.scrollHeight; 
+// }
+
+// addMessageToGame('You enter a dark dungeon...');
+// addMessageToGame('A monster approaches!');
+
+
+    // Start the game
+    handleGameProgress();
+}
+
+

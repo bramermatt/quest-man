@@ -94,11 +94,29 @@ nav {
 
 
 
+#nav-character-display {
+    margin-right: 2vw;
+    text-transform: uppercase;
+    font-size: x-large;
+    filter:drop-shadow(5px 5px 20px black);
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#navbar-content {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
 
 .nav-container {
     position: relative;
     overflow: hidden;
 
+    display: flex;
+    align-items: center;
     
 }
 
@@ -174,8 +192,33 @@ nav {
 
 }
 
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    z-index: 50;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.game-container {
+    padding: 25px;
+}
+
+.game-messages {
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+}
+
+
 @media (min-width: 768px) {
-    .nav-menu {
+    #nav-menu {
         width: 15%;
     }
 }
@@ -183,7 +226,8 @@ nav {
 @media screen and (max-width: 768px) {
     
     #nav-menu {
-        height: 90vh;
+        /* height: 90vh; */
+        width: 70%;
     }
 
     .menu {
@@ -191,12 +235,15 @@ nav {
 
     }
 
+
+
 }
 
 
 .flex {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .row {
@@ -271,15 +318,57 @@ main {
 #character-form input {
     padding: 15px;
     font-size: x-large;
-    margin: 10px 0;
+    /* margin: 10px 0; */
+    margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     align-items: stretch;
     width: -webkit-fill-available;
+    max-width: 550px;
 
 }
+
+#character-form label {
+    text-wrap: nowrap;
+}
+
+.character-form-group {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+}
+
+.character-form-group-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 2vw;
+}
+
+@media screen and (max-width: 1000px) {
+    
+    .character-form-group {
+        flex-direction: column;
+        gap: 0;
+        margin-top: 50px;
+    }
+
+    #character-creation .flex {
+        flex-direction: column;
+    }
+
+    .character-form-group-buttons {
+        position: fixed;
+        display: flex;
+        bottom: 40px;
+        right: 20px;
+        gap: 2vw;
+
+    }
+
+}
+
 
 label, button {
     font-size: 18px;
@@ -428,7 +517,7 @@ button:hover {
 }
 label {
     display: block;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
 }
 input[type="number"] {
     width: 100px;
@@ -500,19 +589,14 @@ input[type="number"] {
 
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 400px) {
     
     .nav-title h1 { 
         display: none;
     }
 
-    #nav-menu {
-        height: 90vh;
-        top: 0px;
-        right: 10px;
-        border-radius: 0;
-        max-width: 90vw !important;
-        border-radius: 10px;
+    .nav-container {
+        gap: 2vw;
     }
 
     #character-form input {
