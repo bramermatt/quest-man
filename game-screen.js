@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const characterIntelligence = document.getElementById('character-intelligence');
     const characterWisdom = document.getElementById('character-wisdom');
     const characterCharisma = document.getElementById('character-charisma');
+    const navCharacterDisplay = document.getElementById('nav-character-display');
 
     function initializeGame() {
         const characters = JSON.parse(localStorage.getItem('characters')) || [];
@@ -67,10 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
         characters.forEach(character => {
             const li = document.createElement('li');
             li.textContent = character.name;
-    
+
             const buttonsDiv = document.createElement('div');
             buttonsDiv.classList.add('character-buttons'); // New class for button container with gap
-    
+
             const selectRadio = document.createElement('input');
             selectRadio.type = 'radio';
             selectRadio.name = 'character-select';
@@ -79,18 +80,19 @@ document.addEventListener('DOMContentLoaded', function() {
             selectRadio.addEventListener('change', function() {
                 const selectedCharacter = character.name;
                 characterNameDisplay.textContent = `Selected Character: ${selectedCharacter}`;
+                navCharacterDisplay.textContent = `Selected: ${selectedCharacter}`; // Update navigation display
                 alert(`Character "${character.name}" selected!`);
                 // You can add further actions here upon selecting a character
             });
-    
+
             const viewButton = document.createElement('button');
             viewButton.innerHTML = '<i class="fas fa-eye"></i>'; // Font Awesome icon for view
             viewButton.style.color = 'white'; // Setting text color to white
             viewButton.addEventListener('click', function() {
                 displayCharacterSheet(character);
             });
-            
-    
+
+
             const deleteButton = document.createElement('button');
             deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>'; // Font Awesome icon for delete
             deleteButton.style.color = 'red';
@@ -98,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 deleteCharacter(character);
                 displayCharacters();
             });
-    
+
             buttonsDiv.appendChild(selectRadio);
             buttonsDiv.appendChild(viewButton);
             buttonsDiv.appendChild(deleteButton);
@@ -106,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
             characterList.appendChild(li);
         });
     }
-    
+
 
     function deleteCharacter(characterToDelete) {
         const characters = JSON.parse(localStorage.getItem('characters')) || [];
