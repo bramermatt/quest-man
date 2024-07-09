@@ -346,7 +346,7 @@ main {
     gap: 2vw;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1450px) {
     
     .character-form-group {
         flex-direction: column;
