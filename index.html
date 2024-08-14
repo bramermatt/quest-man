@@ -6,7 +6,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+
 
     <link rel="shortcut icon" href="dragon-solid.svg" type="image/x-icon">
 
@@ -28,148 +29,22 @@
                 <h1>Quest-Man</h1>
             </div>
 
-<!-- <div id="navbar-content">
-            <div id="nav-character-display"></div>
-            <div id="character-controls">
-                <button id="view-character-sheet"><i class="fas fa-user"></i> Character Sheet</button>
-                <button id="hide-character-sheet" style="display: none;"><i class="fas fa-times"></i> Hide Sheet</button>
-            </div>
-            <div id="character-dropdown" class="hidden">
-                <ul id="character-dropdown-list"></ul>
-            </div>
-        </div> -->
-
-        <div class="nav-container">
-            <span id="nav-character-display"></span>
-            <span id="menu-icon"><i class="fa fa-bars"></i></span>
-            <div class="nav-menu" id="nav-menu">
-                <button class="close-icon" id="close-icon"><i class="fas fa-times"></i></button>
-                <ul class="menu">
-                    <li><a href="#about" id="about-link">About</a></li>
-                    <li><a href="https://github.com/bramermatt/quest-man" target="_blank">GitHub</a></li>
-                    <li><a href="mailto:m.bramer1096@gmail.com?subject=Quest-Man Text-Based Adventure Game | Report an Issue!" target="_blank">Report</a></li>
-                </ul>
-            </div>
-        </div>
-        
-
     </nav>
 
-
-
-
-        <!-- HTML for the About modal -->
-        <div id="aboutModal" class="modal">
-            <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2>About Quest-Man</h2>
-            <p>
-                Welcome to Quest-Man, an engaging text-based adventure game where your choices shape the story. Step into a world of mystery, exploration, and endless possibilities. As the protagonist, you'll navigate through procedurally generated environments, encounter intriguing characters, and face challenging quests.In Quest-Man, your decisions determine the outcome of your journey. Will you become a legendary hero, a cunning rogue, or a wise sage? Each playthrough offers a unique experience, encouraging you to think strategically and immerse yourself in the narrative.
-            </p>
-
-            <p>
-                Embark on epic quests, solve intricate puzzles, and discover hidden secrets. Whether you're a seasoned adventurer or new to the genre, Quest-Man provides a captivating and immersive experience that will keep you coming back for more. Prepare yourself for an unforgettable journey. Adventure awaits in Quest-Man!
-            </p>
-
-            <p>
-                If you have any feedback or suggestions, please feel free to contact us at <a href="mailto:m.bramer1096@gmail.com?subject=Quest-Man Text-Based Adventure Game Suggestion!" target="_blank">m.bramer1096@gmail.com</a>.
-            </p>
-
-            <img src="matt-profile.jpeg" alt="">
-            <p>Developed by <a href="https://www.mattbramer.com" target="_blank">Matthew Bramer</a></p>
-
-            </div>
-        </div>
-
-    <!-- <header>
-        <img src="dragon-background.jpeg" alt="">
-    </header> -->
-
     <main>
-        <div class="game-screen">
-            <div class="game-buttons">
-                <div id="start-button"></div>
-                <button id="start-game-button" class="hidden"><i class="fa-solid fa-play"></i> Play</button>
-
-            </div>
-
-            <!-- <button id="start-game-button" class="hidden">Start Game</button> -->
-
-            <div id="character-selection" class="hidden">
-                <h3>Select a Character</h3>
-                <ul id="character-list"></ul>
-                <button id="new-character-button">Create New Character</button>
-            </div>
-
-            <div id="character-creation" class="hidden">
-                <form id="character-form">
-                    <div class="flex">
-                        <label for="character-name">Character Name:</label>
-                        <input type="text" id="character-name" name="character-name" required>
-                    </div>
-        
-                    <div class="character-form-group">
-                            <!-- D&D Stats Form -->
-                            <div class="form-group">
-                                <label for="strength">Strength (STR)</label>
-                                <input type="number" id="strength" name="strength" min="1" max="20" value="10">
-                            </div>
-                            <div class="form-group">
-                                <label for="dexterity">Dexterity (DEX)</label>
-                                <input type="number" id="dexterity" name="dexterity" min="1" max="20" value="10">
-                            </div>
-                            <div class="form-group">
-                                <label for="constitution">Constitution (CON)</label>
-                                <input type="number" id="constitution" name="constitution" min="1" max="20" value="10">
-                            </div>
-                            <div class="form-group">
-                                <label for="intelligence">Intelligence (INT)</label>
-                                <input type="number" id="intelligence" name="intelligence" min="1" max="20" value="10">
-                            </div>
-                            <div class="form-group">
-                                <label for="wisdom">Wisdom (WIS)</label>
-                                <input type="number" id="wisdom" name="wisdom" min="1" max="20" value="10">
-                            </div>
-                            <div class="form-group">
-                                <label for="charisma">Charisma (CHA)</label>
-                                <input type="number" id="charisma" name="charisma" min="1" max="20" value="10">
-                            </div>
-                    </div>
-
-                    <div class="character-form-group-buttons">
-                            <button type="button" id="generate-stats-button">Auto-Generate Stats</button>
-        
-                            <button type="submit">Create Character</button>
-                    </div>
-                </form>
-            </div>
-
-
-
-            <div id="character-sheet" class="character-sheet">
-                <h3>Character Sheet</h3>
-                <p id="character-name-display"></p>
-                <p id="character-strength"></p>
-                <p id="character-dexterity"></p>
-                <p id="character-constitution"></p>
-                <p id="character-intelligence"></p>
-                <p id="character-wisdom"></p>
-                <p id="character-charisma"></p>
-            </div>
-
+    <div class="imessage">
+        <div class="message-container">
+            <!-- Starting prompt will be inserted here by JavaScript -->
         </div>
-
-        <!-- <div id="game-messages" class="game-messages">
-        </div> -->
-
-
+        <div class="input-container">
+            <input type="text" id="messageInput" placeholder="Type your action...">
+            <button id="sendMessage">Send</button>
+        </div>
+        
     </main>
-    
-    
-    <script src="dungeonCrawl.js"></script>
-    <script src="game-screen.js"></script>
-    <script src="modal.js"></script>
-    <script src="mobile-menu.js"></script>
-    
+
+
+    <script src="messageScreen.js"></script>
+
 </body>
 </html>
