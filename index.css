@@ -53,27 +53,23 @@ nav {
     gap: 1vw;
     padding-inline: 25px;
     width: 100%;
-    max-width: 1400px;
+    /* max-width: 1400px; */
     /* position: sticky; */
     /* top: 15px; */
-    z-index: 1;
-    /* margin-inline: 10px; */
-    /* margin: 0 auto; */
-    /* margin-top: 20px; */
-    /* filter:drop-shadow(1px 1px 3px black); */
+    /* z-index: 1; */
     color: white;
-    margin-bottom: 5vh;
+    /* margin-bottom: 5vh; */
 
-    padding: 10px;
+    padding: 15px;
 
-    background: linear-gradient(darkred, rgb(95, 52, 0));;
-    box-shadow: 2px 0px 3px darkred;
-    position: relative;
-    z-index: 10;
+    /* background: linear-gradient(darkred, rgb(95, 52, 0));; */
+    /* box-shadow: 2px 0px 3px darkred; */
+    /* position: relative; */
 
     .nav-title {
         display: flex;
-        gap: 2vw;
+        align-items: center;
+        gap: 1vw;
     }
 
     .fa {
@@ -89,27 +85,21 @@ nav {
 }
 
 
-
-body {
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* height: 100vh; */
-    margin: 0;
-}
-
 .imessage {
     max-width: 605px;
     margin-inline: 10px;
-    margin-top: 10vh;
+    /* margin-top: 10vh; */
     margin: 0 auto;
     /* background-color: white; */
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .5);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    margin-bottom: 10vh;
+    /* margin-bottom: 10vh; */
+
+
+    max-height: 90vh;
 }
 
 .message-container {
@@ -121,6 +111,13 @@ body {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+
+    flex-grow: 1;
+
+    /* padding-bottom: 50px; */
+    position: relative;
+    box-sizing: content-box; /* Ensures padding is not included in the height */
+    
 }
 
 .message {
@@ -128,7 +125,7 @@ body {
     margin-bottom: 15px;
     padding: 10px 15px;
     border-radius: 20px;
-    font-size: 14px;
+    /* font-size: 16px; */
     line-height: 1.4;
     position: relative;
 }
@@ -150,10 +147,9 @@ body {
     align-self: center;
 }
 
-.input-container {
+/* .input-container {
     display: flex;
     padding: 10px;
-    /* background-color: #f9f9f9; */
     border-top: 1px solid #dcdcdc56;
 
     position: sticky;
@@ -174,7 +170,7 @@ button {
     padding: 10px 15px;
     border: none;
     border-radius: 20px;
-    background-color: #007bff63;
+    background-color: #007bff;
     color: white;
     font-size: 14px;
     cursor: pointer;
@@ -187,26 +183,104 @@ button#rollDice {
 
 button:hover {
     opacity: 0.9;
+} */
+
+
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    /* border-top: 1px solid #dcdcdc56; */
+    /* background-color: #fff; */
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
 }
+
+.input-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.input-wrapper input {
+    flex: 1;
+    padding: 10px;
+    padding-right: 80px;
+    /* border: 1px solid #dcdcdc; */
+    border: none;
+    box-shadow: 0px 0px 2px rgb(0, 0, 0, .5);
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    padding: 15px;
+}
+
+.input-wrapper button {
+    position: absolute;
+    right: 1%;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 16px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 20px;
+    outline: none;
+    margin-right: .5vw;
+}
+
+.input-wrapper button:hover {
+    background-color: #0056b3;
+}
+
 
 
 @media screen and (max-width: 600px) {
     
-    .message-container {
-        position: fixed;
-        overflow-y: auto;
-        bottom: 8vh;
-        width: 100%;
-        max-height: 100%;
-        padding-top: 18vh;
+    .imessage {
+        box-shadow: none !important;
+        border-radius: 0;
+        max-height: 90%;
+        margin-bottom: 8vh;
     }
+
+    .message-container {
+        max-height: 75vh;
+        padding-bottom: 50px;
+    }
+    
+
+    nav {
+        
+        justify-content: center;
+        margin-inline: 0;
+
+        .nav-title {
+            gap: 0vw;
+            align-content: center;
+            flex-direction: column;
+
+
+        }
+
+        .fa {
+            font-size: 2.5vh;
+        }
+    }
+
 
     .input-container {
         position: fixed;
         bottom: 0;
         width: 100%;
-
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
         background-color: rgba(0, 0, 0, 0.9);
+
     }
 
 }
@@ -214,7 +288,8 @@ button:hover {
 
 @media screen and (prefers-color-scheme: light) {
     .input-container {
-        background-color: white;
+        box-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5);
+        background-color: rgba(255, 255, 255, 0.8);
     }
 
     .received {
